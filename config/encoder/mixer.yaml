@@ -1,0 +1,9 @@
+module: mixer
+d_model: 256
+n_heads: 8
+l_max:  1024 # can be computed based on embedding
+n_layers: 4
+dropout: 0.1
+head_dropout: 0.1,
+mlp_dim: None
+tie_them_all: False

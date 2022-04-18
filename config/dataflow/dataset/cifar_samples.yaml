@@ -1,0 +1,5 @@
+# @package _group_._name_
+val_split: 0.1
+seed: 42
+class_names: ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+path_to_numpy_file: None

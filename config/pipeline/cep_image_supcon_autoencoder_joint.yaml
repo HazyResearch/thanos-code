@@ -1,0 +1,22 @@
+defaults:
+  - /task@Classification: classification_image_joint
+  - /task@SupCon: supcon_image
+  - /task@Autoencoder: autoencoder_image
+
+
+SupCon:
+  task_flow:
+    image_pre_encoder:
+      module: ImagePreEncoderSup
+      inputs: [[supervised_task_preprocessing, image]]
+    image_encoder:
+      module: ImageEncoderSup
+      inputs: [[image_pre_encoder, 0]] # for pre_encoders :=> 0: input, 1: target pre encoding
+Autoencoder:
+  task_flow:
+    image_pre_encoder:
+      module: ImagePreEncoderAuto
+      inputs: [[supervised_task_preprocessing, image]]
+    image_encoder:
+      module: ImageEncoderAuto
+      inputs: [[image_pre_encoder, 0]] # for pre_encoders :=> 0: input, 1: target pre encoding

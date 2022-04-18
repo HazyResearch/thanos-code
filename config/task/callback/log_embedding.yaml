@@ -1,0 +1,10 @@
+module: log_embedding
+logging_batch_idx: null # which batch to log; if -1, log all batches
+inputs: null # which input to log
+input_names: null # names of each input
+log_every_n_epochs: 1
+batch_size: ${dataflow.batch_size}
+eval_batch_size: ${dataflow.eval_batch_size}
+plot_embeddings: True
+plot_embeddings_stride: 1
+class_names: ${dataflow.class_names}

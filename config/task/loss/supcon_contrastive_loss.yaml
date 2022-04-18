@@ -1,0 +1,3 @@
+module: ContrastiveLoss #uid of loss function in loss section
+inputs: [[image_view_select_0, 0], [image_view_select_1, 0], [_output_, label]]
+weight: 1.0

@@ -1,0 +1,12 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /modules@model: cep_image
+  - override /pipeline@tasks: cep_image
+
+trainer:
+  max_epochs: 5
+  limit_train_batches: 5
+
+wandb:
+  mode: disabled

@@ -1,0 +1,5 @@
+module: l_spread
+views: 2
+temp: 0.5
+lc_norm: True
+_target_: null

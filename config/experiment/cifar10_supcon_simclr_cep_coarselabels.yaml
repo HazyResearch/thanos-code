@@ -1,0 +1,32 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /dataflow: cifar10_coarse
+  - override /modules@model: cep_image_supcon_simclr
+  - override /pipeline@tasks: cep_image_supcon_simclr
+
+model:
+  decoders:
+      Classifier:
+          d_output: 2
+
+tasks:
+  SupCon:
+    losses:
+      contrastive_loss:
+        module: ContrastiveLossSup
+
+dataflow:
+  x:
+    image:
+      views: 2
+
+trainer:
+  max_epochs: 600
+
+learner:
+  checkpoint_scheduler:
+    monitor: val/Classification_accuracy
+    mode: max
+wandb:
+  group: cifar10_supcon_simclr_cep_cl

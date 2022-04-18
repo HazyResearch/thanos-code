@@ -1,0 +1,9 @@
+# @package _global_
+defaults:
+  - _self_
+  - /modules@model: cep_image
+  - /pipeline@tasks: cep_image
+  - /dataflow: cifar10
+  - /trainer: default
+  - /learner: default
+  - /wandb: default

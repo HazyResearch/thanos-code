@@ -1,0 +1,27 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /dataflow: cifar100_coarse
+  - override /modules@model: cep_image
+  - override /pipeline@tasks: cep_image
+
+model:
+  decoders:
+    Classifier:
+        num_classes: 20
+
+dataflow:
+  x:
+    image:
+      views: 2
+  y:
+    coarse_label:
+        transform_with: image
+
+              
+trainer:
+  max_epochs: 600
+
+wandb:
+  group: cifar100_cep_cl
+

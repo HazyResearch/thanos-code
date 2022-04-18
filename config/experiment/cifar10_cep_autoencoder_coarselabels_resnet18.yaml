@@ -1,0 +1,48 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /dataflow: cifar10_coarse
+  - override /modules@model: cep_image_autoencoder
+  - override /pipeline@tasks: cep_image_autoencoder
+  - override /embedding@model.embeddings.ImagePreEncoder: identity
+  - override /encoder@model.encoders.ImageEncoder: resnet
+  - override /dataflow/transforms@dataflow.transforms: cifar10_resnet
+
+model:
+  embeddings:
+    ImagePreEncoder:
+      d_model: 512
+  encoders:
+    ImageEncoder:
+      model: resnet18
+      d_model: 512
+      use_pretrained: False
+  decoders:
+    ImageDecoder:
+      d_input: 512
+    Classifier:
+      d_input: 512
+      d_output: 2
+
+tasks:
+  Autoencoder:
+    task_flow:
+      image_unflatten:
+        module: ImagePreEncoder
+        inputs: [[supervised_task_preprocessing, image]]
+
+dataflow:
+  x:
+    image:
+      views: 2
+
+trainer:
+  max_epochs: 200
+
+learner:
+  checkpoint_scheduler:
+    monitor: val/Classification_accuracy
+    mode: max
+
+wandb:
+  group: cifar10_cep_autoencoder_resnet18_cl

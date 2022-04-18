@@ -1,0 +1,3 @@
+defaults:
+  - /task@Classification: classification_image
+  - /task@Autoencoder: autoencoder_image

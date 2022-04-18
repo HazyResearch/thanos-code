@@ -1,0 +1,27 @@
+defaults:
+  - dataset: cifar10_coarse
+  - transforms: cifar10
+  - loader@_here_: default
+
+# train: # the split for training, accepts str or list of strs
+#   splits: train
+# val: # the split for validation, accepts str or list of strs
+#   splits: val
+# test: # the split for testing, accepts str or list of strs
+#   splits: test
+
+class_names: ${dataflow.dataset.cifar10_coarse.class_names}
+
+x:
+  image:
+    transform: image_pil
+    default_transform: image_pil_default_transform
+    views: 1
+    mask: null # TODO: Should be added as a default
+    type: image # TODO: currently needs to be a mandatory param
+
+y:
+  label:
+    transform_with: image
+
+data_dir: None

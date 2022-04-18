@@ -1,0 +1,15 @@
+defaults:
+  - task_flow: classification_image
+  - loss@losses.classifier_loss: classifier_loss
+  - metric@metrics.accuracy: accuracy
+  - callback@callbacks.encoder_embedding: log_embedding
+
+task_weight: 1.0
+torchmetrics: {}
+callbacks:
+  encoder_embedding:
+    logging_batch_idx: 0
+    inputs: [[image_encoder, 0], [_input_, index], [_output_, label]]
+    input_names: ['ImageEncoderEmbedding', 'sample_uid', 'labels']
+    log_every_n_epochs: 50
+    plot_embeddings: True

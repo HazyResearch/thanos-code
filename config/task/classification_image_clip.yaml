@@ -1,0 +1,14 @@
+defaults:
+  - task_flow: classification_image
+  - loss@losses.classifier_loss_image: classifier_loss
+  - metric@metrics.accuracy: accuracy
+
+task_weight: 1.0
+torchmetrics: {}
+callbacks: {}
+
+
+task_flow:
+  classifier:
+    module: ImageClassifier
+ 

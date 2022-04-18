@@ -1,0 +1,6 @@
+module: image_reshape
+d_input: null #embedding dimension
+output_height: null #height of the image to generate
+output_width: null #height of the image to generate
+d_output: null
+_target_: null

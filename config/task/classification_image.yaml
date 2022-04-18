@@ -1,0 +1,8 @@
+defaults:
+  - task_flow: classification_image
+  - loss@losses.classifier_loss: classifier_loss
+  - metric@metrics.accuracy: accuracy
+
+task_weight: 1.0
+torchmetrics: {}
+callbacks: {}

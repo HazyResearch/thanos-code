@@ -1,0 +1,20 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /modules@model: cep_image_supcon
+  - override /pipeline@tasks: cep_image_supcon
+
+model:
+  losses:
+    ContrastiveLoss:
+      module: l_spread
+      type: l_spread
+
+
+dataflow:
+  x:
+    image:
+      views: 2
+
+wandb:
+  group: cifar10_lspread_cep

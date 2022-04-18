@@ -1,0 +1,2 @@
+module: accuracy
+inputs: [[classifier, 0], [_output_, label]]

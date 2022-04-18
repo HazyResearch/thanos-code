@@ -1,0 +1,3 @@
+module: MSELoss #uid of loss function in loss section
+inputs: [[image_decoder, 0], [image_unflatten, 0]]
+weight: 1.0

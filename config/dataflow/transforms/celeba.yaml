@@ -1,0 +1,18 @@
+image_pil:
+  - type: CenterCrop
+    size: [178, 218]
+  - type: Resize
+    prob: 1.0
+    size: 224
+    
+image_pil_default_transform:
+  - type: ToTensor
+  - type: Normalize
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+  # - type: Reshape2D
+  #   h_dim: 3 # num_channels
+  #   w_dim: 1024 #32 x 32 x 3
+
+image_pil_no_transform:
+  - type: Identity

@@ -1,0 +1,5 @@
+project: unagi
+group: ""
+job_type: training
+mode: disabled # choices=['online', 'offline', 'disabled']
+id: null # pass correct id to resume experiment!

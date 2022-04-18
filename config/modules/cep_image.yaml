@@ -1,0 +1,23 @@
+defaults:
+  - /preprocessor@preprocessors.SupervisedTaskPreprocessing: supervised_task_preprocessing
+  - /embedding@embeddings.ImagePreEncoder: square_patch
+  - /encoder@encoders.ImageEncoder: transformer
+  - /decoder@decoders.Classifier: classifier
+  - /loss@losses.ClassifierLoss: label_smoothing
+
+train: True
+label_smoothing: True
+
+
+embeddings:
+  ImagePreEncoder:
+    d_model: 256
+
+# encoders:
+#   ImageEncoder:
+#     d_model: 256
+
+# decoders:
+#   Classifier: 
+#     d_input: 256
+#     d_output: 10

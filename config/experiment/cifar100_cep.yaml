@@ -1,0 +1,24 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /dataflow: cifar100
+  - override /modules@model: cep_image
+  - override /pipeline@tasks: cep_image_log
+
+
+learner:
+  monitor:  val/Classification_accuracy
+  checkpoint_scheduler: 
+    monitor: val/Classification_accuracy
+    mode: max
+
+dataflow:
+  x:
+    image:
+      views: 2
+
+trainer:
+  max_epochs: 600
+
+wandb:
+  group: cifar100_cep

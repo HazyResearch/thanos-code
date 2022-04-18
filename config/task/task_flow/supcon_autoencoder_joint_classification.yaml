@@ -1,0 +1,18 @@
+supervised_task_preprocessing:
+  module: SupervisedTaskPreprocessing # this is the UID
+  inputs: [[_input_, inputs]]
+image_pre_encoder_1:
+  module: ImagePreEncoderSup
+  inputs: [[supervised_task_preprocessing, image]]
+image_pre_encoder_2:
+  module: ImagePreEncoderAuto
+  inputs: [[supervised_task_preprocessing, image]]
+image_encoder_sup:
+  module: ImageEncoderSup
+  inputs: [[image_pre_encoder_1, 0]] 
+image_encoder_auto:
+  module: ImageEncoderAuto
+  inputs: [[image_pre_encoder_2, 0]] 
+classifier:
+  module: Classifier
+  inputs: [[image_encoder_sup, 0], [image_encoder_auto, 0]]

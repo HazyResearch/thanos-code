@@ -1,0 +1,7 @@
+# @package _group_._name_
+val_split: 0.1
+seed: 42
+class_names: ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+subset_split_seed: 42
+subset_split_percent: 0.5
+coarse_labels: False

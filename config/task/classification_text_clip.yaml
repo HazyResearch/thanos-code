@@ -1,0 +1,21 @@
+defaults:
+  - task_flow: classification_text
+  - loss@losses.classifier_loss_text: classifier_loss
+  - metric@metrics.accuracy: accuracy
+  # - callback@callbacks.classifier_embedding: log_embedding
+
+task_weight: 1.0
+torchmetrics: {}
+callbacks: {}
+# callbacks: 
+#    classifier_embedding:
+#      logging_batch_idx: 0
+#      inputs: [[classifier, 0], [_input_, index], [_output_, label]]
+#      input_names: ['TextClassifierEmbeedding', 'sample_uid', 'labels']
+#      log_every_n_epochs: 1
+#      plot_embeddings: True
+
+
+task_flow:
+  classifier:
+    module: TextClassifier

@@ -1,0 +1,7 @@
+module: square_patch
+d_input: null
+d_model: null #256
+patch_size: 4
+path_to_checkpoint: null
+source_module: null
+_target_: null

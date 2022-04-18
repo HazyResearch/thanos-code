@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /modules@model: cep_image_supcon_autoencoder
+  - override /pipeline@tasks: cep_image_supcon_autoencoder
+
+
+dataflow:
+  x:
+    image:
+      views: 2
+
+wandb:
+  group: cifar10_supcon_cep_autoencoder

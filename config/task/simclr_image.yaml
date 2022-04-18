@@ -1,0 +1,21 @@
+defaults:
+  - task_flow: supcon_image
+  - loss@losses.simclr_contrastive_loss: simclr_contrastive_loss
+  # - callback@callbacks.encoder_embedding: log_embedding
+
+task_weight: 1.0
+metrics: {}
+torchmetrics: {}
+callbacks: {}
+# callbacks:
+#   encoder_embedding:
+#     logging_batch_idx: 0
+#     inputs: [[image_encoder, 0], [_input_, index], [_output_, label]]
+#     input_names: ['ImageEncoderEmbedding', 'sample_uid', 'labels']
+#     log_every_n_epochs: 50
+#     plot_embeddings: True
+
+losses:
+  simclr_contrastive_loss:
+    module: ContrastiveLossSim
+

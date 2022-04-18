@@ -1,0 +1,4 @@
+defaults:
+  - /task@Classification: classification_image
+  - /task@SupCon: supcon_image
+  - /task@SimClr: simclr_image

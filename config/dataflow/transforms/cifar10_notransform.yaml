@@ -1,0 +1,13 @@
+image_pil:
+  - type: Identity
+image_pil_default_transform:
+  - type: ToTensor
+  - type: Normalize
+    mean: [0.49139968, 0.48215841, 0.44653091]
+    std: [0.24703223, 0.24348513, 0.26158784]
+  - type: Reshape2D
+    h_dim: 3 # num_channels
+    w_dim: 1024 #32 x 32 x 3
+
+image_pil_no_transform:
+  - type: Identity

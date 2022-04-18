@@ -1,0 +1,3 @@
+module: ClassifierLoss #uid of loss function in loss section
+inputs: [[classifier, 0], [_output_, label]]
+weight: 1.0

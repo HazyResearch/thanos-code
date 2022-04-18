@@ -1,0 +1,38 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /modules@model: cep_image_supcon_autoencoder_joint
+  - override /pipeline@tasks: cep_image_supcon_autoencoder_joint
+
+# Note: modify path_to_checkpoint to point to the checkpoint of coarse training run
+model:
+  encoders:
+    ImageEncoderSup:
+      source_module: ImageEncoder
+      path_to_checkpoint: None
+    ImageEncoderAuto:
+      source_module: ImageEncoder
+      path_to_checkpoint: None
+  embeddings:
+    ImagePreEncoderSup:
+      source_module: ImagePreEncoder
+      path_to_checkpoint: None
+    ImagePreEncoderAuto:
+      source_module: ImagePreEncoder
+      path_to_checkpoint: None
+
+# Note: customize dirpath
+learner:
+  modules_to_freeze: [ImageEncoderSup, ImagePreEncoderSup, ImageEncoderAuto, ImagePreEncoderAuto, ImageDecoder]
+  optimizer: 
+    lr: .001
+  checkpoint_scheduler: 
+    monitor: val/Classification_accuracy
+    mode: max
+    dirpath: None
+
+trainer:
+  max_epochs: 100
+
+wandb:
+  group: cifar10_cep_twobackbones_xfer

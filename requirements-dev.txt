@@ -1,0 +1,11 @@
+hydra-core
+mypy
+types-PyYAML
+pytest
+torch
+torchmetrics==0.6.0
+pytorch-lightning==1.4.8
+rich
+wandb
+matplotlib
+sklearn

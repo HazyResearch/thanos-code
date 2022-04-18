@@ -1,0 +1,24 @@
+defaults:
+  - task_flow: clip_text
+  - loss@losses.contrastive_loss_text: lspread_contrastive_loss
+  # - callback@callbacks.encoder_embedding: log_embedding
+  # - callback@callbacks.classifier_embedding: log_embedding
+
+
+task_weight: 1.0
+metrics: {}
+torchmetrics: {}
+callbacks: {}
+# callbacks:
+#    encoder_embedding:
+#      logging_batch_idx: 0
+#      inputs: [[text_encoder, 0], [_input_, index], [_output_, label]]
+#      input_names: ['TextEncoderEmbedding', 'sample_uid', 'labels']
+#      log_every_n_epochs: 1
+#      plot_embeddings: True
+
+losses:
+  contrastive_loss_text:
+    module: ContrastiveLossText
+    inputs: [[text_view_select_0_proj, 0], [text_view_select_1_proj, 0], [_output_, label]]
+

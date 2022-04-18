@@ -1,0 +1,21 @@
+defaults:
+  - /optimizer: adamw
+  - /scheduler: cosine
+
+interval: epoch
+monitor: val/Classification_accuracy
+name: trainer/lr
+modules_to_freeze: []
+task_scheduler: round_robin # [sequential, round_robin, mixed]
+checkpoint_scheduler:
+  dirpath: null
+  monitor: loss
+  mode: min
+  filename: best
+  save_last: True
+sequential_scheduler_config:
+  fillup: False
+round_robin_scheduler_config:
+  fillup: False
+mixed_scheduler_config:
+  fillup: False

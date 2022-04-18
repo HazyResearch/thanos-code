@@ -1,0 +1,26 @@
+defaults:
+  - task_flow: entitymatching_pretrain
+  - loss@losses.contrastive_loss_clip: lspread_contrastive_loss
+  - loss@losses.contrastive_loss_lspread: lspread_contrastive_loss
+  # - callback@callbacks.encoder_embedding: log_embedding
+
+
+task_weight: 1.0
+metrics: {}
+torchmetrics: {}
+callbacks: {}
+# callbacks:
+#   encoder_embedding:
+#     logging_batch_idx: 0
+#     inputs: [[image_encoder, 0], [_input_, index], [_output_, label]]
+#     input_names: ['ImageEncoderEmbedding', 'sample_uid', 'labels']
+#     log_every_n_epochs: 50
+#     plot_embeddings: True
+
+losses:
+  contrastive_loss_clip:
+    module: ContrastiveLossClip
+    inputs: [[text_view_select_0_left, 0], [text_view_select_0_right, 0], [_output_, label]]
+  contrastive_loss_lspread:
+    module: ContrastiveLossLspread
+    inputs: [[text_view_select_0_left, 0], [text_view_select_0_right, 0], [_input_, price]]

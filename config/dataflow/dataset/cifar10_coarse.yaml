@@ -1,0 +1,6 @@
+# @package _group_._name_
+val_split: 0.1
+seed: 42
+coarse_labels: True
+class_names: ['vehicles', 'animals']
+return_train_as_test: False

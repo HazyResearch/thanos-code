@@ -1,0 +1,4 @@
+# @package _group_._name_
+val_split: 0.1
+seed: 42
+root_dir: None

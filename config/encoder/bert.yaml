@@ -1,0 +1,7 @@
+module: bert
+freeze_layers: True
+pretrained_lm_name: bert-base-uncased
+use_cls_token: True
+use_all_tokens: False
+pretrained_weights: None
+_target_: null 

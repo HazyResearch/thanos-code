@@ -1,0 +1,45 @@
+defaults:
+  - /preprocessor@preprocessors.SupervisedTaskPreprocessing: supervised_task_preprocessing
+  - /embedding@embeddings.ImagePreEncoder: square_patch
+  - /encoder@encoders.ImageEncoder: transformer
+  - /decoder@decoders.Classifier: classifier
+  - /decoder@decoders.ViewSelect0: view_select
+  - /decoder@decoders.ViewSelect1: view_select
+  - /decoder@decoders.ImageDecoder: resnet18decoder
+  - /decoder@decoders.ImageReshape: image_reshape
+  - /loss@losses.ClassifierLoss: label_smoothing
+  - /loss@losses.ContrastiveLoss: contrastive_loss
+  - /loss@losses.MSELoss: mse_loss
+
+train: True
+label_smoothing: True
+
+embeddings:
+  ImagePreEncoder:
+    d_model: 256
+
+encoders:
+  ImageEncoder:
+    d_model: 256
+
+decoders:
+  ViewSelect0:
+    n_views: 2
+    view_idx: 0
+  ViewSelect1:
+    n_views: 2
+    view_idx: 1
+  Classifier: 
+    d_input: 256
+  ImageDecoder:
+    d_input: 256
+    input_height: 32
+  ImageReshape:
+    d_input: 1024
+    output_height: 32
+    output_width: 32
+
+losses:
+  ContrastiveLoss:
+    module: sup_con
+    type: sup_con

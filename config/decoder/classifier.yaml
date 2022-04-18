@@ -1,0 +1,5 @@
+module: classifier
+d_input: null #256 -- fill this inside the Python
+d_output: null #10 -- fill this inside the Python program
+_target_: null
+path_to_checkpoint: null

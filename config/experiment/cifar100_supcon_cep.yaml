@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /dataflow: cifar100
+  - override /modules@model: cep_image_supcon
+  - override /pipeline@tasks: cep_image_supcon
+
+dataflow:
+  x:
+    image:
+      views: 2
+
+wandb:
+  group: cifar100_supcon_cep

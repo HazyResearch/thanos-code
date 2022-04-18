@@ -1,0 +1,31 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /dataflow: cifar100
+  - override /modules@model: cep_image
+  - override /pipeline@tasks: cep_image_log
+
+# Note: modify path_to_checkpoint to point to checkpoint of coarse training run
+model:
+  encoders:
+    ImageEncoder:
+      path_to_checkpoint: None
+  embeddings:
+    ImagePreEncoder:
+      path_to_checkpoint: None
+
+# Note: customize dirpath 
+learner:
+  modules_to_freeze: [ImageEncoder, ImagePreEncoder]
+  optimizer: 
+    lr: .001
+  checkpoint_scheduler: 
+    monitor: val/Classification_accuracy
+    mode: max
+    dirpath: None
+
+trainer:
+  max_epochs: 100
+
+wandb:
+  group: cifar100_cep

@@ -1,0 +1,28 @@
+image_pil:
+  - type: HorizontalFlip
+    prob: 0.5
+  - type: RandomResizedCrop
+    prob: 1.0
+    size: 32
+    scale: [0.2, 1.]
+  - type: HorizontalFlip
+    prob: 0.5
+  - type: ColorJitter
+    brightness: 0.4
+    contrast: 0.4
+    saturation: 0.4
+    hue: 0.1
+    prob: 0.8
+  - type: RandomGrayscale
+    p: 0.2
+image_pil_default_transform:
+  - type: ToTensor
+  - type: Normalize
+    mean: [0.49139968, 0.48215841, 0.44653091]
+    std: [0.24703223, 0.24348513, 0.26158784]
+  - type: Reshape2D
+    h_dim: 3 # num_channels
+    w_dim: 1024 #32 x 32 x 3
+
+image_pil_no_transform:
+  - type: Identity

@@ -1,0 +1,2 @@
+module: label_smoothing
+_target_: null

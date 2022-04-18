@@ -1,0 +1,19 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /modules@model: cep_image_supcon
+  - override /pipeline@tasks: cep_image_supcon
+
+model:
+  losses:
+    ContrastiveLoss:
+      type: sup_con
+
+
+dataflow:
+  x:
+    image:
+      views: 2
+
+wandb:
+  group: cifar10_supcon_cep

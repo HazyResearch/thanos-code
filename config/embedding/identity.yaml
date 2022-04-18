@@ -1,0 +1,7 @@
+module: identity
+d_input: null
+d_model: null #256
+patch_size: 32
+path_to_checkpoint: null
+source_module: null
+_target_: null

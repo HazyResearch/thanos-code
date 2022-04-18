@@ -1,0 +1,6 @@
+module: pretrained_lm
+d_input: null
+d_model: null #256
+patch_size: 4
+pretrained_lm_name: bert-base-uncased
+_target_: null

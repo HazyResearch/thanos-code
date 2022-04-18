@@ -1,0 +1,6 @@
+module: log_image
+logging_batch_idx: null # which batch to log; if -1, log all batches
+inputs: null # which input to log
+input_names: null # names of each input
+log_every_n_epochs: 1
+max_images: 16 # maximum number of images to log per input

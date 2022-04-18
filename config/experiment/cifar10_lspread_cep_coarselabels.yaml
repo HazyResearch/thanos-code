@@ -1,0 +1,33 @@
+# @package _global_
+defaults:
+  - _self_
+  - override /dataflow: cifar10_coarse
+  - override /modules@model: cep_image_supcon
+  - override /pipeline@tasks: cep_image_supcon
+
+
+model:
+  decoders:
+    Classifier:
+        d_output : 2
+  losses:
+    ContrastiveLoss:
+      module: l_spread
+      type: l_spread
+
+dataflow:
+  x:
+    image:
+      views: 2
+
+learner:
+  checkpoint_scheduler:
+    monitor: val/Classification_accuracy
+    mode: max
+    save_last: True
+
+trainer:
+  max_epochs: 600
+
+wandb:
+  group: cifar10_lspread_cep_cl

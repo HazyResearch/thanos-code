@@ -1,0 +1,6 @@
+module: resnet18decoder
+d_input: null #embedding dimension
+input_height: null #height of the image to generate
+_target_: null
+d_output: null
+path_to_checkpoint: null

@@ -1,0 +1,26 @@
+defaults:
+  - task_flow: autoencoder_image_grayscale
+  - loss@losses.mse_loss: mse_loss
+  #- callback@callbacks.autoencoder_image: log_image
+  #- callback@callbacks.encoder_embedding: log_embedding
+
+task_weight: 1.0
+metrics: {}
+torchmetrics: {}
+callbacks: {}
+losses:
+  mse_loss:
+    inputs: [[gray_scale, 0], [image_unflatten, 0]]
+
+#callbacks:
+  #autoencoder_image:
+  #  logging_batch_idx: 0
+  #  inputs: [[image_unflatten, 0], [image_decoder, 0]]
+  #  log_every_n_epochs: 50
+  #  input_names: ['Original', 'Reconstruction']
+  #encoder_embedding:
+  #  logging_batch_idx: 0
+  #  inputs: [[image_encoder, 0], [_input_, index], [_output_, label]]
+  #  input_names: ['ImageEncoderEmbedding', 'sample_uid', 'labels']
+  #  log_every_n_epochs: 50
+  #  plot_embeddings: True
