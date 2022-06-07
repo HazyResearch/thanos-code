@@ -9,6 +9,7 @@ from unagi.data.transforms.image.contrast import Contrast
 from unagi.data.transforms.image.cutout import Cutout
 from unagi.data.transforms.image.equalize import Equalize
 from unagi.data.transforms.image.gaussian_blur import GaussianBlur
+from unagi.data.transforms.image.grayscale import Grayscale
 from unagi.data.transforms.image.horizontal_filp import HorizontalFlip
 from unagi.data.transforms.image.identity import Identity
 from unagi.data.transforms.image.invert import Invert
@@ -43,6 +44,7 @@ ALL_TRANSFORMS = {
     "Cutout": Cutout,
     "Equalize": Equalize,
     "GaussianBlur": GaussianBlur,
+    "Grayscale": Grayscale,
     "ColorDistortion": ColorDistortion,
     "HorizontalFlip": HorizontalFlip,
     "Identity": Identity,

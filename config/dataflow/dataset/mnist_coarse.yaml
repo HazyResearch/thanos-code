@@ -1,0 +1,5 @@
+# @package _group_._name_
+val_split: 0.1
+seed: 42
+coarse_labels: True
+class_names: ['<5','>=5']

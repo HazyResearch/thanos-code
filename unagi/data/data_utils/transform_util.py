@@ -37,6 +37,10 @@ def get_transforms(
                     del aug["type"]
                     if type in ALL_TRANSFORMS[feat_type]:
                         transforms_list.append(ALL_TRANSFORMS[feat_type][type](**aug))
+                    else:
+                        raise ValueError(
+                            f"Unknown transform type: {type} for feature: {name}"
+                        )
         # check if default transformation is specified in experiment config
         # if yes, overwrite preset dataset transformation
         default_transforms_key = (
@@ -52,6 +56,10 @@ def get_transforms(
                 del aug["type"]
                 if type in ALL_TRANSFORMS[feat_type]:
                     transforms_list.append(ALL_TRANSFORMS[feat_type][type](**aug))
+                else:
+                    raise ValueError(
+                        f"Unknown transform type: {type} for feature: {name}"
+                    )
         else:
             # use dataset preset transform
             if feat_type in default_transforms:

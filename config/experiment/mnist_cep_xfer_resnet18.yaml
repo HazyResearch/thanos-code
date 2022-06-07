@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - /experiment/cifar10_xfer_resnet18
+  - override /dataflow: mnist_coarse
+  - override /dataflow/transforms@dataflow.transforms: mnist_resnet
+
+wandb:
+  group: cifar10_cep_xfer_resnet18

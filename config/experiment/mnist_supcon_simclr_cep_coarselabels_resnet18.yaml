@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - /experiment/cifar10_supcon_simclr_cep_coarselabels_resnet18
+  - override /dataflow: mnist_coarse
+  - override /dataflow/transforms@dataflow.transforms: mnist_resnet
+
+wandb:
+  group: mnist_supcon_simclr_cep_resnet18_cl

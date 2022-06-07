@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - /experiment/cifar10_lspread_cep_coarselabels_resnet18
+  - override /dataflow: mnist_coarse
+  - override /dataflow/transforms@dataflow.transforms: mnist_resnet
+
+wandb:
+  group: mnist_lspread_cep_resnet18_cl
