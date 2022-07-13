@@ -100,7 +100,7 @@ For the two backbone experiment, add `model.encoders.ImageEncoderSup.l_max=257 m
 @article{chen2022perfectly,
   author = {Mayee F. Chen and Daniel Y. Fu and Avanika Narayan and Michael Zhang and Zhao Song and Kayvon Fatahalian and Christopher R\'e},
   title = {Perfectly Balanced: Improving Transfer and Robustness of Supervised Contrastive Learning},
-  journal = {arXiv preprint arXiv:2204.07596},
+  booktitle = {Proceedings of the 39th International Conference on Machine Learning (ICML 2022)},
   year = {2022},
 }
 ```
